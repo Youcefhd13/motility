@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Maven: gov.nist.math:jama:1.0.3">
+    <archive path="C:/Users/u0101128/.m2/repository/gov/nist/math/jama/1.0.3/jama-1.0.3.jar" />
+  </library>
+  <library name="Maven: net.imagej:ij:1.49m">
+    <archive path="C:/Users/u0101128/.m2/repository/net/imagej/ij/1.49m/ij-1.49m.jar" />
+  </library>
+  <library name="Maven: sc.fiji:Multi_Kymograph:2.0.0">
+    <archive path="C:/Users/u0101128/.m2/repository/sc/fiji/Multi_Kymograph/2.0.0/Multi_Kymograph-2.0.0.jar" />
+  </library>
+
+
+</eclipse-userlibraries>
+

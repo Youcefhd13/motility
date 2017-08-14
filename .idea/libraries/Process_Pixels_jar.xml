@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Process_Pixels_jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/classes/artifacts/Process_Pixels_jar/Process_Pixels.zip!/" />
+      <root url="jar://$PROJECT_DIR$/classes/artifacts/Process_Pixels_jar/Process_Pixels.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

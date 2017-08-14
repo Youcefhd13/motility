@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component LANGUAGE_LEVEL="JDK_1_6" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/target/test-classes"/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<excludeFolder url="file://$MODULE_DIR$/target"/>
+	</contentEntry>
+	<lib name="pom.xml" scope="COMPILE">
+		<relative-module-cls project-related="file://$PROJECT_DIR$/pom.xml"/>
+	</lib>
+	<lib name="Maven: net.imagej:imagej-ui-awt:0.2.1" scope="RUNTIME"/>
+	<lib name="Maven: net.imagej:imagej-plugins-commands:0.3.1" scope="RUNTIME"/>
+	<lib name="Maven: net.iharder:base64:2.3.8" scope="RUNTIME"/>
+	<lib name="Maven: net.imagej:imagej-plugins-tools:0.2.1" scope="RUNTIME"/>
+	<lib name="Maven: net.imagej:imagej-plugins-uploader-ssh:0.2.0" scope="RUNTIME"/>
+	<lib name="Maven: com.jcraft:jsch:0.1.49" scope="RUNTIME"/>
+	<lib name="Maven: net.imagej:imagej-plugins-uploader-webdav:0.2.0" scope="RUNTIME"/>
+	<lib name="Maven: org.scijava:scijava-plugins-platforms:0.1.2" scope="RUNTIME"/>
+	<lib name="Maven: org.scijava:scijava-plugins-text-markdown:0.1.1" scope="RUNTIME"/>
+	<lib name="Maven: org.markdownj:markdownj:0.3.0-1.0.2b4" scope="RUNTIME"/>
+	<lib name="Maven: org.scijava:scijava-plugins-text-plain:0.1.1" scope="RUNTIME"/>
+	<lib name="Maven: org.apache.commons:commons-lang3:3.1" scope="RUNTIME"/>
+	<lib name="Maven: org.scijava:scripting-beanshell:0.1.3" scope="RUNTIME"/>
+	<lib name="Maven: org.beanshell:bsh:2.0b4" scope="RUNTIME"/>
+	<lib name="Maven: org.scijava:scripting-clojure:0.1.1" scope="RUNTIME"/>
+	<lib name="Maven: org.clojure:clojure:1.3.0" scope="RUNTIME"/>
+	<lib name="Maven: org.scijava:scripting-groovy:0.1.1" scope="RUNTIME"/>
+	<lib name="Maven: org.codehaus.groovy:groovy:2.3.6" scope="RUNTIME"/>
+	<lib name="Maven: org.scijava:scripting-javascript:0.2.2" scope="RUNTIME"/>
+	<lib name="Maven: org.scijava:scripting-jruby:0.1.5" scope="RUNTIME"/>
+	<lib name="Maven: org.jruby:jruby-core:1.7.12" scope="RUNTIME"/>
+	<lib name="Maven: org.ow2.asm:asm:4.0" scope="RUNTIME"/>
+	<lib name="Maven: org.ow2.asm:asm-commons:4.0" scope="RUNTIME"/>
+	<lib name="Maven: org.ow2.asm:asm-tree:4.0" scope="RUNTIME"/>
+	<lib name="Maven: org.ow2.asm:asm-analysis:4.0" scope="RUNTIME"/>
+	<lib name="Maven: org.ow2.asm:asm-util:4.0" scope="RUNTIME"/>
+	<lib name="Maven: org.jruby.joni:joni:2.1.1" scope="RUNTIME"/>
+	<lib name="Maven: com.github.jnr:jnr-netdb:1.1.2" scope="RUNTIME"/>
+	<lib name="Maven: com.github.jnr:jnr-enxio:0.4" scope="RUNTIME"/>
+	<lib name="Maven: com.github.jnr:jnr-x86asm:1.0.2" scope="RUNTIME"/>
+	<lib name="Maven: com.github.jnr:jnr-unixsocket:0.3" scope="RUNTIME"/>
+	<lib name="Maven: com.github.jnr:jnr-posix:3.0.1" scope="RUNTIME"/>
+	<lib name="Maven: org.jruby.extras:bytelist:1.0.11" scope="RUNTIME"/>
+	<lib name="Maven: com.github.jnr:jnr-constants:0.8.5" scope="RUNTIME"/>
+	<lib name="Maven: org.jruby.jcodings:jcodings:1.0.10" scope="RUNTIME"/>
+	<lib name="Maven: com.github.jnr:jnr-ffi:1.0.7" scope="RUNTIME"/>
+	<lib name="Maven: com.github.jnr:jffi:1.2.7" scope="RUNTIME"/>
+	<lib name="Maven: com.github.jnr:jffi:native:1.2.7" scope="RUNTIME"/>
+	<lib name="Maven: org.yaml:snakeyaml:1.13" scope="RUNTIME"/>
+	<lib name="Maven: com.jcraft:jzlib:1.1.2" scope="RUNTIME"/>
+	<lib name="Maven: com.headius:invokebinder:1.2" scope="RUNTIME"/>
+	<lib name="Maven: com.martiansoftware:nailgun-server:0.9.1" scope="RUNTIME"/>
+	<lib name="Maven: org.jruby:yecht:1.0" scope="RUNTIME"/>
+	<lib name="Maven: joda-time:joda-time:2.3" scope="RUNTIME"/>
+	<lib name="Maven: com.headius:options:1.1" scope="RUNTIME"/>
+	<lib name="Maven: org.jruby:jruby-stdlib:1.7.12" scope="RUNTIME"/>
+	<lib name="Maven: org.scijava:scripting-jython:0.1.4" scope="RUNTIME"/>
+	<lib name="Maven: org.scijava:jython-shaded:2.5.3" scope="RUNTIME"/>
+	<lib name="KymoResliceWide_.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Libraries/KymoResliceWide_.jar!/"/>
+	</lib>
+	<levels>
+		<level name="Maven: net.imagej:ij:1.49m" value="project"/>
+		<level name="Maven: sc.fiji:Multi_Kymograph:2.0.0" value="project"/>
+		<level name="Maven: sc.fiji:KymographBuilder:1.2.5-SNAPSHOT" value="project"/>
+		<level name="Maven: net.imagej:imagej:2.0.0-rc-18" value="project"/>
+		<level name="Maven: net.imagej:imagej-legacy:0.9.2" value="project"/>
+		<level name="Maven: net.imagej:imagej-ui-swing:0.8.1" value="project"/>
+		<level name="Maven: com.fifesoft:rsyntaxtextarea:2.5.2" value="project"/>
+		<level name="Maven: com.miglayout:miglayout:swing:3.7.4" value="project"/>
+		<level name="Maven: org.jfree:jfreechart:1.0.14" value="project"/>
+		<level name="Maven: org.jfree:jcommon:1.0.17" value="project"/>
+		<level name="Maven: xml-apis:xml-apis:1.3.04" value="project"/>
+		<level name="Maven: com.lowagie:itext:2.1.5" value="project"/>
+		<level name="Maven: bouncycastle:bcmail-jdk14:138" value="project"/>
+		<level name="Maven: bouncycastle:bcprov-jdk14:138" value="project"/>
+		<level name="Maven: org.jhotdraw:jhotdraw:7.6.0" value="project"/>
+		<level name="Maven: net.imagej:imagej-ui-awt:0.2.1" value="project"/>
+		<level name="Maven: net.imglib2:imglib2-ij:2.0.0-beta-28" value="project"/>
+		<level name="Maven: org.scijava:scijava-ui-awt:0.1.2" value="project"/>
+		<level name="Maven: org.scijava:scijava-ui-swing:0.3.0" value="project"/>
+		<level name="Maven: org.scijava:swing-checkbox-tree:1.0.0" value="project"/>
+		<level name="Maven: net.sourceforge.jdatepicker:jdatepicker:1.3.2" value="project"/>
+		<level name="Maven: net.imagej:imagej-updater:0.7.0" value="project"/>
+		<level name="Maven: net.imagej:imagej-plugins-commands:0.3.1" value="project"/>
+		<level name="Maven: com.github.sbridges.object-inspector:object-inspector:0.1" value="project"/>
+		<level name="Maven: net.iharder:base64:2.3.8" value="project"/>
+		<level name="Maven: net.imagej:imagej-plugins-tools:0.2.1" value="project"/>
+		<level name="Maven: net.imagej:imagej-plugins-uploader-ssh:0.2.0" value="project"/>
+		<level name="Maven: com.jcraft:jsch:0.1.49" value="project"/>
+		<level name="Maven: net.imagej:imagej-plugins-uploader-webdav:0.2.0" value="project"/>
+		<level name="Maven: org.scijava:scijava-plugins-commands:0.1.7" value="project"/>
+		<level name="Maven: org.scijava:scijava-plugins-platforms:0.1.2" value="project"/>
+		<level name="Maven: org.scijava:scijava-plugins-text-markdown:0.1.1" value="project"/>
+		<level name="Maven: org.markdownj:markdownj:0.3.0-1.0.2b4" value="project"/>
+		<level name="Maven: org.scijava:scijava-plugins-text-plain:0.1.1" value="project"/>
+		<level name="Maven: org.apache.commons:commons-lang3:3.1" value="project"/>
+		<level name="Maven: org.scijava:scripting-beanshell:0.1.3" value="project"/>
+		<level name="Maven: org.beanshell:bsh:2.0b4" value="project"/>
+		<level name="Maven: org.scijava:scripting-clojure:0.1.1" value="project"/>
+		<level name="Maven: org.clojure:clojure:1.3.0" value="project"/>
+		<level name="Maven: org.scijava:scripting-groovy:0.1.1" value="project"/>
+		<level name="Maven: org.codehaus.groovy:groovy:2.3.6" value="project"/>
+		<level name="Maven: org.scijava:scripting-java:0.2.5" value="project"/>
+		<level name="Maven: org.scijava:minimaven:2.1.3" value="project"/>
+		<level name="Maven: org.scijava:scripting-javascript:0.2.2" value="project"/>
+		<level name="Maven: org.scijava:scripting-jruby:0.1.5" value="project"/>
+		<level name="Maven: org.jruby:jruby-core:1.7.12" value="project"/>
+		<level name="Maven: org.ow2.asm:asm:4.0" value="project"/>
+		<level name="Maven: org.ow2.asm:asm-commons:4.0" value="project"/>
+		<level name="Maven: org.ow2.asm:asm-tree:4.0" value="project"/>
+		<level name="Maven: org.ow2.asm:asm-analysis:4.0" value="project"/>
+		<level name="Maven: org.ow2.asm:asm-util:4.0" value="project"/>
+		<level name="Maven: org.jruby.joni:joni:2.1.1" value="project"/>
+		<level name="Maven: com.github.jnr:jnr-netdb:1.1.2" value="project"/>
+		<level name="Maven: com.github.jnr:jnr-enxio:0.4" value="project"/>
+		<level name="Maven: com.github.jnr:jnr-x86asm:1.0.2" value="project"/>
+		<level name="Maven: com.github.jnr:jnr-unixsocket:0.3" value="project"/>
+		<level name="Maven: com.github.jnr:jnr-posix:3.0.1" value="project"/>
+		<level name="Maven: org.jruby.extras:bytelist:1.0.11" value="project"/>
+		<level name="Maven: com.github.jnr:jnr-constants:0.8.5" value="project"/>
+		<level name="Maven: org.jruby.jcodings:jcodings:1.0.10" value="project"/>
+		<level name="Maven: com.github.jnr:jnr-ffi:1.0.7" value="project"/>
+		<level name="Maven: com.github.jnr:jffi:1.2.7" value="project"/>
+		<level name="Maven: com.github.jnr:jffi:native:1.2.7" value="project"/>
+		<level name="Maven: org.yaml:snakeyaml:1.13" value="project"/>
+		<level name="Maven: com.jcraft:jzlib:1.1.2" value="project"/>
+		<level name="Maven: com.headius:invokebinder:1.2" value="project"/>
+		<level name="Maven: com.martiansoftware:nailgun-server:0.9.1" value="project"/>
+		<level name="Maven: org.jruby:yecht:1.0" value="project"/>
+		<level name="Maven: joda-time:joda-time:2.3" value="project"/>
+		<level name="Maven: com.headius:options:1.1" value="project"/>
+		<level name="Maven: org.jruby:jruby-stdlib:1.7.12" value="project"/>
+		<level name="Maven: org.scijava:scripting-jython:0.1.4" value="project"/>
+		<level name="Maven: org.scijava:jython-shaded:2.5.3" value="project"/>
+		<level name="Maven: net.imagej:imagej-common:0.10.2" value="project"/>
+		<level name="Maven: net.imglib2:imglib2-roi:0.2.0" value="project"/>
+		<level name="Maven: edu.ucar:udunits:4.3.18" value="project"/>
+		<level name="Maven: net.imagej:imagej-ops:0.6.2" value="project"/>
+		<level name="Maven: net.imglib2:imglib2-algorithm:0.1.1" value="project"/>
+		<level name="Maven: net.imglib2:imglib2-algorithm-fft:0.1.1" value="project"/>
+		<level name="Maven: edu.mines:mines-jtk:20100113" value="project"/>
+		<level name="Maven: net.imglib2:imglib2-realtransform:2.0.0-beta-28" value="project"/>
+		<level name="Maven: org.javassist:javassist:3.16.1-GA" value="project"/>
+		<level name="Maven: io.scif:scifio:0.17.2" value="project"/>
+		<level name="Maven: io.scif:scifio-jai-imageio:1.1.0" value="project"/>
+		<level name="Maven: org.mapdb:mapdb:1.0.3" value="project"/>
+		<level name="Maven: net.imglib2:imglib2:2.2.0" value="project"/>
+		<level name="Maven: org.scijava:scijava-common:2.35.1" value="project"/>
+		<level name="Maven: com.googlecode.gentyref:gentyref:1.1.0" value="project"/>
+		<level name="Maven: org.bushe:eventbus:1.4" value="project"/>
+		<level name="Maven: net.imagej:ij1-patcher:0.11.1" value="project"/>
+		<level name="Maven: sc.fiji:KymoResliceWide_:0.4" value="project"/>
+		<level name="Maven: gov.nist.math:jama:1.0.3" value="project"/>
+	</levels>
+</component>

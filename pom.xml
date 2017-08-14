@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+		http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<parent>
+		<groupId>sc.fiji</groupId>
+		<artifactId>pom-fiji</artifactId>
+		<version>6.1.3</version>
+		<relativePath />
+	</parent>
+
+	<artifactId>Process_pixels_</artifactId>
+	<version>0.0.5-SNAPSHOT</version>
+
+	<name>plugins/Process_pixels_.jar</name>
+	<description></description>
+	<url>http://imagej.net</url>
+	<inceptionYear>2017</inceptionYear>
+
+	<developers>
+		<developer>
+			<id>Youcef</id>
+			<name>Youcef Kazwiny</name>
+			<url>http://imagej.net</url>
+			<roles>
+				<role>maintainer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git://github.com/fiji/BalloonSegmentation</connection>
+		<developerConnection>scm:git:git@github.com:fiji/BalloonSegmentation</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/fiji/BalloonSegmentation</url>
+	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/fiji/BalloonSegmentation/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Jenkins</system>
+		<url>http://jenkins.imagej.net/job/BalloonSegmentation/</url>
+	</ciManagement>
+
+	<repositories>
+		<!-- NB: for project parent -->
+		<repository>
+			<id>imagej.public</id>
+			<url>http://maven.imagej.net/content/groups/public</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<!-- ImageJ dependencies -->
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>ij</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/sc.fiji/KymographBuilder -->
+		<dependency>
+			<groupId>sc.fiji</groupId>
+			<artifactId>Multi_Kymograph</artifactId>
+			<version>3.0.0-SNAPSHOT</version>
+		</dependency>
+
+
+
+		<!-- Third party dependencies -->
+		<dependency>
+			<groupId>gov.nist.math</groupId>
+			<artifactId>jama</artifactId>
+		</dependency>
+
+
+
+
+		<dependency>
+			<groupId>gov.nist.math</groupId>
+			<artifactId>jama</artifactId>
+		</dependency>
+
+
+	</dependencies>
+</project>
