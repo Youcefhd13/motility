@@ -13,9 +13,10 @@ import ij.ImageJ;
 import ij.ImagePlus;
 import ij.WindowManager;
 import ij.gui.*;
+import java.util.*;
 import ij.io.OpenDialog;
 import ij.measure.ResultsTable;
-import ij.plugin.PlugIn;
+import ij.plugin.*;
 import ij.plugin.frame.RoiManager;
 import ij.process.FloatProcessor;
 import ij.process.ImageProcessor;
@@ -37,6 +38,7 @@ public class Process_Pixels extends JFrame implements ActionListener, KeyListene
 	public ImagePlus imp_scaled;
 	public ImageProcessor ip_scaled;
 	protected ImagePlus imp_big;
+	int zNum=0; int cNum=0; int tNum=0;
 
 	public MultipleKymograph_ Kymo = new MultipleKymograph_();
 
@@ -47,6 +49,9 @@ public class Process_Pixels extends JFrame implements ActionListener, KeyListene
 	// image property members
 	private int width;
 	private int height;
+	public double[][] diameter;
+
+//	private int zNum=0;  private int cNum=0; private int tNum=0;
 
 
 
@@ -293,52 +298,159 @@ public class Process_Pixels extends JFrame implements ActionListener, KeyListene
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		if (e.getSource() == Skymo) {
-			IJ.setTool("polyline");
+			IJ.setTool("rectangle");
+
 
 
 
 			Roi[] KymROI = getRois();
-			ROIkym = (PolygonRoi) KymROI[0];
-
-
-
-
-			ROIkym.setStrokeWidth(Float.valueOf(Lwidthfield.getText()).floatValue());
 
 
 		}
 		if (e.getSource() == Ckymo) {
 
 			ImagePlus impp = WindowManager.getCurrentImage();
+			IJ.run(impp, "Crop", "");
 
 
 
 			ImageProcessor iip = impp.getProcessor();
+			ImagePlus impp2 =impp.duplicate();
 
 
-			double[] kyminst = this.getIrregularProfile(ROIkym, iip, 0);
-			int proflength = kyminst.length;
+
+
+//			double[] kyminst = this.getIrregularProfile(ROIkym, iip, 0);
+//			int proflength = kyminst.length;
 
 			int thickness = Integer.valueOf(Lwidthfield.getText()).intValue();
 
+//			IJ.setAutoThreshold(impp2, "Default dark");
+			IJ.run(impp2, "Convert to Mask", "stack");
+			IJ.run(impp2, "Convert to Mask", "method=Default background=Dark calculate stack");
+			IJ.run(impp2, "Dilate", "stack");
+			IJ.run(impp2, "Close-", "stack");
+			IJ.run(impp2, "Dilate", "stack");
+			IJ.run(impp2, "Fill Holes", "stack");
+			IJ.run(impp2, "Outline", "stack");
+
+
+//			IJ.run(impp2, "Skeletonize", "stack");   for skeletonization probably harder
+			ImagePlus axisp =impp2.duplicate();
+
+			impp2.show();
+
+			//preview axis
+			ImageCalculator ic = new ImageCalculator();
+			ImagePlus imp3 = ic.run("Multiply create 32-bit stack", impp2, impp);
+			imp3.show();
+
+			int[] dim = axisp.getDimensions();
+			int hei= dim[1];
+			int wid=dim[0];
+			int frames=dim[3];
+
+			diameter = new double[wid][frames];
+
+			int w0=20; //removed part (due to branching in the skeletonizing algorithm);
+
+
+
+			for (int i = 0; i < 5; i++) {
+				System.out.println(Integer.toString(dim[i]));
+
+			}
 
 
 
 
-			double[] average = getKymo(impp, iip, ROIkym, thickness ,proflength);
-			FloatProcessor nip = new FloatProcessor(proflength, impp.getStackSize(), average);
-			ImagePlus kymoimp = new ImagePlus("Kymograph", nip);
-			kymoimp.show();
+
+			ImageProcessor axisip= axisp.getProcessor();
+			int[] Data = new int[hei];
 
 
 
 
 
-			imp_big = WindowManager.getCurrentImage();
-			imp_scaled = imp_big.duplicate();
-			ip_scaled = imp_scaled.getProcessor();
-			imp_scaled.setTitle("scaled");
-			//imp_scaled.show();
+			for (int k = 0; k < frames-1 ; k++) {
+
+
+
+				for (int j = w0; j < wid - w0; j++) {
+
+					axisip.getColumn(j, 0, Data, hei);
+
+					ArrayList<Integer> Indices = new ArrayList<Integer>();
+
+
+					for (int i = 0; i < hei; i++) {
+
+						if (Data[i] == 255) {
+							Indices.add(i);
+						}
+
+//						data[i] = Data[i];
+
+					}
+
+					if (Indices.size() > 2) {
+
+//						System.out.println(Integer.toString(Indices.size()));
+
+
+					}
+
+					if (Indices.size() == 2) {
+
+						diameter[j][k] = -Indices.get(0) + Indices.get(1);
+						Indices.remove(1);
+						Indices.remove(0);
+
+
+
+					}
+
+
+
+
+
+
+
+
+				}
+
+
+
+
+
+
+				axisp.setSlice(k + 1);
+
+
+
+
+			}
+
+			diameter=replacezeros(diameter,  wid,frames);
+
+
+
+//
+//			double[] average = getKymo(impp, iip, ROIkym, thickness ,proflength);
+//			FloatProcessor nip = new FloatProcessor(proflength, impp.getStackSize(), average);
+//			ImagePlus kymoimp = new ImagePlus("Kymograph", nip);
+//			kymoimp.show();
+
+
+
+
+
+//
+//			imp_big = WindowManager.getCurrentImage();
+//			imp_scaled = imp_big.duplicate();
+//			ip_scaled = imp_scaled.getProcessor();
+//			imp_scaled.setTitle("scaled");
+//			//imp_scaled.show();
 
 
 
@@ -347,21 +459,28 @@ public class Process_Pixels extends JFrame implements ActionListener, KeyListene
 
 		if (e.getSource() == updtkymo) {
 
-			int kymolength = (int) Float.valueOf(widthfield.getText()).floatValue();
-
-			imp_scaled = imp_big.duplicate();
-			int  kymowitdh =  imp_scaled.getWidth();
-			ip_scaled = ip_scaled.resize(kymowitdh,kymolength);
-			if ( imp_scaled.isVisible())
-			{
-				IJ.log( "false");
-				}
-			imp_scaled.setProcessor(ip_scaled);
 
 
-			IJ.log("here");
-			imp_scaled.show();
-			imp_scaled.updateAndRepaintWindow();
+			ImagePlus newImage;
+			newImage = NewImage.createFloatImage("diameter_image", 296, 500, 1, NewImage.FILL_BLACK);
+			ImageProcessor newip = newImage.getProcessor();
+			for (int i=0;i<500;i++)
+					for (int j=0;j<296;j++){
+
+
+						newip.set(j,i,(int)Math.round(5*diameter[j][i]));
+
+
+
+					}
+
+
+
+
+
+
+
+
 
 
 //			Roi[] KymROI = getRois();
@@ -680,6 +799,7 @@ public class Process_Pixels extends JFrame implements ActionListener, KeyListene
 		}
 
 	}
+
 	public void mouseExited(MouseEvent e) {}
 	public void mouseEntered(MouseEvent e) {}
 	public void mouseClicked(MouseEvent e) {}
@@ -710,6 +830,115 @@ public class Process_Pixels extends JFrame implements ActionListener, KeyListene
 		s += "] ";
 		return s;
 	}
+
+
+
+
+	public static int countSuccessiveb (int[] values, int target) {
+		int maxLength = 0;
+		int tempLength = 0;
+
+		for (int value : values) {
+			tempLength = (value == target) ? 1 + tempLength : 0;
+			if (tempLength > maxLength) {
+				maxLength = tempLength;
+			}
+		}
+		return maxLength;
+	}
+
+	private static int getMax(int[] values) {
+		int maxLength = 0;
+		for (int i = 0; i < values.length; i+=1+maxLength) { // here we are looking for the first zero. if lenght remaining is lesser than actual max zero-strike, no way we caund found a better.
+
+			if (values[i] == 0) { // is zero
+
+				//find leftmost zero
+				int tmpLeft = 0;
+				while(tmpLeft < i && values[i-tmpLeft-1] == 0){
+					tmpLeft++;
+				}
+
+				//find righmost zero
+				int tmpRight = 0;
+				while(tmpRight+i < values.length && values[i+tmpRight] == 0){
+					tmpRight++;
+				}
+
+				maxLength = Math.max(maxLength, tmpLeft+tmpRight);
+
+
+
+			}
+		}
+
+		return maxLength;
+	}
+
+
+
+
+
+
+
+
+	double[][] replacezeros(double[][] a, int lim,int frames) {
+
+		int i, count, left = 0, right, j, k;
+		count = 0;
+
+		ArrayList<Integer> arl = new ArrayList<Integer>(); //stopped here
+		ResultsTable resulty2 = new ResultsTable();
+
+
+
+		for (k = 0; k < frames; k++) {
+
+			for (i = 20; i < lim-20; i++) {
+				if (a[i][k] == 0) {
+					if (arl.size() == 0){
+						left = i - 1;}
+
+					arl.add(i);
+
+				} else {
+
+					if (arl.size() > 0) {
+						right = i;
+						for (j = left; j < right && count < 10; j++) {
+
+							a[j][k] = a[left][k] + (a[left][k] - a[right][k]) / (right - left); //should be good
+
+						}
+					}
+
+					arl.clear();
+					left=0;
+					right=0;
+
+
+				}
+
+
+			}
+
+
+			arl.add(i);
+
+
+
+
+		}
+
+
+		resulty2.addColumns();
+
+		return a;
+
+	}
+
+
+
 
 	// from  MultipleKymograph plugin
 	double[] getIrregularProfile(Roi roi, ImageProcessor ip, int shift) {
